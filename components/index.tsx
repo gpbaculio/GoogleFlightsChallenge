@@ -1,4 +1,3 @@
-import { Theme } from "@/theme";
 import {
     createBox,
     createRestyleComponent,
@@ -12,6 +11,8 @@ import {
     View,
     ViewProps,
 } from "react-native";
+
+import { Theme } from "@/theme";
 
 export const createContainer = <T,>(Component: React.ComponentType<T>) => {
   return createRestyleComponent<VariantProps<Theme, "container"> & T, Theme>(
