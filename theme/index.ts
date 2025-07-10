@@ -31,6 +31,7 @@ const sharedProperties = {
     m: 16,
     l: 24,
     xl: 40,
+    auto: "auto",
   },
   breakpoints: {
     phone: 0,
@@ -46,6 +47,64 @@ const sharedProperties = {
     robotoMedium: getFontStyle("Roboto-Medium", "500"),
     robotoSemiBold: getFontStyle("Roboto-SemiBold", "600"),
     robotoBold: getFontStyle("Roboto-Bold", "700"),
+  },
+  container: {
+    // Row layouts
+    rowAlignCenter: {
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    rowCenterBetween: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+    },
+    rowSpaceAround: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-around",
+    },
+    rowSpaceEvenly: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-evenly",
+    },
+    rowStart: {
+      flexDirection: "row",
+      alignItems: "flex-start",
+    },
+
+    // Column layouts
+    columnCenter: {
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    columnStart: {
+      flexDirection: "column",
+      alignItems: "flex-start",
+    },
+    columnBetween: {
+      flexDirection: "column",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
+    columnSpaceAround: {
+      flexDirection: "column",
+      justifyContent: "space-around",
+      alignItems: "center",
+    },
+    columnSpaceEvenly: {
+      flexDirection: "column",
+      justifyContent: "space-evenly",
+      alignItems: "center",
+    },
+
+    // Generic centering
+    centerItems: {
+      alignItems: "center",
+      justifyContent: "center",
+    },
   },
 };
 
