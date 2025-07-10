@@ -49,6 +49,7 @@ const sharedProperties = {
     robotoBold: getFontStyle("Roboto-Bold", "700"),
   },
   container: {
+    defaults: {},
     // Row layouts
     rowAlignCenter: {
       flexDirection: "row",
