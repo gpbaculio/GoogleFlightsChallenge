@@ -14,12 +14,11 @@ import {
 
 import { Theme } from "@/theme";
 
-export const createContainer = <T,>(Component: React.ComponentType<T>) => {
-  return createRestyleComponent<VariantProps<Theme, "container"> & T, Theme>(
+export const createContainer = <T,>(Component: React.ComponentType<T>) =>
+  createRestyleComponent<VariantProps<Theme, "container"> & T, Theme>(
     [createVariant({ themeKey: "container" })],
     Component
   );
-};
 
 export const ViewBox = createContainer(createBox<Theme, ViewProps>(View));
 export const TextBox = createText<Theme>();
