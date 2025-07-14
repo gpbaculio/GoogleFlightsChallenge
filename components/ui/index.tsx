@@ -1,5 +1,7 @@
 import { createBox, createText } from "@shopify/restyle";
 import {
+    Image,
+    ImageProps,
     TouchableOpacity,
     TouchableOpacityProps,
     View,
@@ -14,3 +16,4 @@ export const TextBox = createText<Theme>();
 export const TouchableOpacityBox = createContainer(
   createBox<Theme, TouchableOpacityProps>(TouchableOpacity)
 );
+export const ImageBox = createContainer(createBox<Theme, ImageProps>(Image));
