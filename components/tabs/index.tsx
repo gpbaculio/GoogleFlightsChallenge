@@ -17,7 +17,7 @@ export function FormContainer({ children }: { children: React.ReactNode }) {
       elevation={2}
       shadowOpacity={0.2}
       shadowOffset={{ width: 0, height: 1 }}
-      px="s"
+      px="m"
     >
       {children}
     </ViewBox>
