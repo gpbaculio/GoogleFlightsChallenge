@@ -3,11 +3,15 @@ import { useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import Flights from "@/assets/images/flights_nc_4.svg";
+import { FormContainer } from "@/components/tabs";
 import { TextBox, ViewBox } from "@/components/ui";
+import { Theme } from "@/theme";
+import { useTheme } from "@shopify/restyle";
 
 export default function HomeScreen() {
   const { width, height } = useWindowDimensions();
   const { top } = useSafeAreaInsets();
+  const { colors } = useTheme<Theme>();
 
   return (
     <ViewBox
@@ -17,21 +21,7 @@ export default function HomeScreen() {
       alignItems="center"
     >
       <Flights style={{ zIndex: 3 }} width={width} height={height * 0.11} />
-      <ViewBox
-        zIndex={2}
-        top={-1}
-        borderBottomLeftRadius={16}
-        borderBottomRightRadius={16}
-        width="100%"
-        pb="m"
-        backgroundColor="background"
-        shadowColor="onBackground"
-        shadowRadius={2}
-        elevation={2}
-        shadowOpacity={0.2}
-        shadowOffset={{ width: 0, height: 1 }}
-        px="s"
-      >
+      <FormContainer>
         <TextBox
           textAlign="center"
           fontSize={24}
@@ -40,19 +30,14 @@ export default function HomeScreen() {
         >
           Flights
         </TextBox>
-        <ViewBox
-          variant="rowAlignCenter"
-          padding="s"
-          backgroundColor="tertiaryContainer"
-        >
+        <ViewBox variant="rowAlignCenter" my="s">
           <ViewBox
             flex={1}
             borderWidth={1}
-            borderColor="primary"
+            borderColor="outlineVariant"
             mr="s"
             height={50}
             borderRadius={4}
-            backgroundColor="error"
           >
             <TextBox>ashdhasdh</TextBox>
           </ViewBox>
@@ -63,17 +48,17 @@ export default function HomeScreen() {
               height={30}
               borderRadius={15}
               borderWidth={1}
-              borderColor="primary"
+              borderColor="outlineVariant"
               variant="centerItems"
             >
               <ViewBox
                 width={28}
                 height={28}
                 borderRadius={15}
-                backgroundColor="tertiaryContainer"
+                backgroundColor="background"
               />
               <ViewBox
-                backgroundColor="tertiaryContainer"
+                backgroundColor="background"
                 position="absolute"
                 width={16}
                 height={50}
@@ -83,7 +68,7 @@ export default function HomeScreen() {
                 style={{ position: "absolute" }}
                 name="compare-arrows"
                 size={24}
-                color="black"
+                color={colors.outline}
               />
             </ViewBox>
           </ViewBox>
@@ -91,15 +76,14 @@ export default function HomeScreen() {
             flex={1}
             borderRadius={4}
             borderWidth={1}
-            borderColor="primary"
+            borderColor="outlineVariant"
             ml="s"
             height={50}
-            backgroundColor="error"
           >
             <TextBox>ashdhasdh</TextBox>
           </ViewBox>
         </ViewBox>
-      </ViewBox>
+      </FormContainer>
     </ViewBox>
   );
 }
