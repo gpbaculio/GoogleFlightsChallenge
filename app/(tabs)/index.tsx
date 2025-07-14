@@ -1,4 +1,5 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { useTheme } from "@shopify/restyle";
 import { useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -6,7 +7,6 @@ import Flights from "@/assets/images/flights_nc_4.svg";
 import { FormContainer } from "@/components/tabs";
 import { TextBox, ViewBox } from "@/components/ui";
 import { Theme } from "@/theme";
-import { useTheme } from "@shopify/restyle";
 
 export default function HomeScreen() {
   const { width, height } = useWindowDimensions();
@@ -33,7 +33,7 @@ export default function HomeScreen() {
         <ViewBox variant="rowAlignCenter" my="s">
           <ViewBox
             flex={1}
-            borderWidth={1}
+            borderWidth={0.5}
             borderColor="outlineVariant"
             mr="s"
             height={50}
@@ -75,7 +75,7 @@ export default function HomeScreen() {
           <ViewBox
             flex={1}
             borderRadius={4}
-            borderWidth={1}
+            borderWidth={0.5}
             borderColor="outlineVariant"
             ml="s"
             height={50}
