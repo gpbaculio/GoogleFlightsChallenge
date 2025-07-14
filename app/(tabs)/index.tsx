@@ -35,9 +35,13 @@ export default function HomeScreen() {
             mr="s"
             height={50}
             borderRadius={4}
+            placeholder="Where from?"
+            p="m"
           />
           <CenterArrow />
           <TextInputBox
+            placeholder="Where to?"
+            p="m"
             flex={1}
             borderRadius={4}
             borderWidth={0.5}
