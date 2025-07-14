@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import Flights from "@/assets/images/flights_nc_4.svg";
 import { FormContainer } from "@/components/tabs";
-import { TextBox, ViewBox } from "@/components/ui";
+import { TextBox, TextInputBox, ViewBox } from "@/components/ui";
 import { Theme } from "@/theme";
 
 export default function HomeScreen() {
@@ -31,16 +31,14 @@ export default function HomeScreen() {
           Flights
         </TextBox>
         <ViewBox variant="rowAlignCenter" my="s">
-          <ViewBox
+          <TextInputBox
             flex={1}
             borderWidth={0.5}
             borderColor="outlineVariant"
             mr="s"
             height={50}
             borderRadius={4}
-          >
-            <TextBox>ashdhasdh</TextBox>
-          </ViewBox>
+          />
           <ViewBox variant="centerItems" zIndex={3}>
             <ViewBox
               position="absolute"
@@ -72,16 +70,14 @@ export default function HomeScreen() {
               />
             </ViewBox>
           </ViewBox>
-          <ViewBox
+          <TextInputBox
             flex={1}
             borderRadius={4}
             borderWidth={0.5}
             borderColor="outlineVariant"
             ml="s"
             height={50}
-          >
-            <TextBox>ashdhasdh</TextBox>
-          </ViewBox>
+          />
         </ViewBox>
       </FormContainer>
     </ViewBox>
