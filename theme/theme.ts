@@ -18,7 +18,7 @@ export default {
       onError: "#FFFFFF",
       errorContainer: "#FFDAD6",
       onErrorContainer: "#93000A",
-      background: "#FAF8FF",
+      background: "#FFFFFF",
       onBackground: "#191B23",
       surface: "#FAF8FF",
       onSurface: "#191B23",
