@@ -1,17 +1,14 @@
-import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { useTheme } from "@shopify/restyle";
 import { useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import Flights from "@/assets/images/flights_nc_4.svg";
-import { FormContainer } from "@/components/tabs";
+import CenterArrow from "@/components/tabs/CenterArrow";
+import { FormContainer } from "@/components/tabs/FormContainer";
 import { TextBox, TextInputBox, ViewBox } from "@/components/ui";
-import { Theme } from "@/theme";
 
 export default function HomeScreen() {
   const { width, height } = useWindowDimensions();
   const { top } = useSafeAreaInsets();
-  const { colors } = useTheme<Theme>();
 
   return (
     <ViewBox
@@ -39,37 +36,7 @@ export default function HomeScreen() {
             height={50}
             borderRadius={4}
           />
-          <ViewBox variant="centerItems" zIndex={3}>
-            <ViewBox
-              position="absolute"
-              width={30}
-              height={30}
-              borderRadius={15}
-              borderWidth={1}
-              borderColor="outlineVariant"
-              variant="centerItems"
-            >
-              <ViewBox
-                width={28}
-                height={28}
-                borderRadius={15}
-                backgroundColor="background"
-              />
-              <ViewBox
-                backgroundColor="background"
-                position="absolute"
-                width={16}
-                height={50}
-                justifyContent="center"
-              />
-              <MaterialIcons
-                style={{ position: "absolute" }}
-                name="compare-arrows"
-                size={24}
-                color={colors.outline}
-              />
-            </ViewBox>
-          </ViewBox>
+          <CenterArrow />
           <TextInputBox
             flex={1}
             borderRadius={4}
