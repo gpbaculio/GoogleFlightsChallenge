@@ -2,9 +2,10 @@ import { useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import Flights from "@/assets/images/flights_nc_4.svg";
+import { TextBox, TextInputBox, ViewBox } from "@/components";
 import CenterArrow from "@/components/tabs/CenterArrow";
 import { FormContainer } from "@/components/tabs/FormContainer";
-import { TextBox, TextInputBox, ViewBox } from "@/components/ui";
+import { MaterialIcons } from "@expo/vector-icons";
 
 export default function HomeScreen() {
   const { width, height } = useWindowDimensions();
@@ -27,6 +28,9 @@ export default function HomeScreen() {
         >
           Flights
         </TextBox>
+        <ViewBox variant="rowAlignCenter" m="s" backgroundColor="error">
+          <MaterialIcons name="compare-arrows" size={24} color="black" />
+        </ViewBox>
         <ViewBox variant="rowAlignCenter" my="s">
           <TextInputBox
             flex={1}
