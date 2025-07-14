@@ -3,7 +3,7 @@ import { useTheme } from "@shopify/restyle";
 import React from "react";
 
 import { Theme } from "@/theme";
-import { ViewBox } from "../ui";
+import { ViewBox } from "..";
 
 export default function CenterArrow() {
   const { colors } = useTheme<Theme>();

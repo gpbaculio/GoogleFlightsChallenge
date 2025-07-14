@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ViewBox } from "../ui";
+import { ViewBox } from "..";
 
 export function FormContainer({ children }: { children: React.ReactNode }) {
   return (
