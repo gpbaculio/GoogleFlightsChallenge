@@ -2,14 +2,22 @@ import { useWindowDimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import Flights from "@/assets/images/flights_nc_4.svg";
-import { TextBox, TextInputBox, ViewBox } from "@/components";
+import {
+  TextBox,
+  TextInputBox,
+  TouchableOpacityBox,
+  ViewBox,
+} from "@/components";
 import CenterArrow from "@/components/tabs/CenterArrow";
 import { FormContainer } from "@/components/tabs/FormContainer";
+import { Theme } from "@/theme";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useTheme } from "@shopify/restyle";
 
 export default function HomeScreen() {
   const { width, height } = useWindowDimensions();
   const { top } = useSafeAreaInsets();
+  const { colors } = useTheme<Theme>();
 
   return (
     <ViewBox
@@ -28,8 +36,46 @@ export default function HomeScreen() {
         >
           Flights
         </TextBox>
-        <ViewBox variant="rowAlignCenter" m="s" backgroundColor="error">
-          <MaterialIcons name="compare-arrows" size={24} color="black" />
+        <ViewBox variant="rowCenterBetween" m="s">
+          <TouchableOpacityBox variant="rowAlignCenter">
+            <MaterialIcons
+              name="compare-arrows"
+              size={24}
+              color={colors.outline}
+            />
+            <TextBox pl="xs">Round trip</TextBox>
+            <MaterialIcons
+              name="arrow-drop-down"
+              size={24}
+              color={colors.outline}
+            />
+          </TouchableOpacityBox>
+          <TouchableOpacityBox variant="rowAlignCenter">
+            <MaterialIcons
+              name="compare-arrows"
+              size={24}
+              color={colors.outline}
+            />
+            <TextBox pl="xs">Round trip</TextBox>
+            <MaterialIcons
+              name="arrow-drop-down"
+              size={24}
+              color={colors.outline}
+            />
+          </TouchableOpacityBox>
+          <TouchableOpacityBox variant="rowAlignCenter">
+            <MaterialIcons
+              name="compare-arrows"
+              size={24}
+              color={colors.outline}
+            />
+            <TextBox pl="xs">Round trip</TextBox>
+            <MaterialIcons
+              name="arrow-drop-down"
+              size={24}
+              color={colors.outline}
+            />
+          </TouchableOpacityBox>
         </ViewBox>
         <ViewBox variant="rowAlignCenter" my="s">
           <TextInputBox
