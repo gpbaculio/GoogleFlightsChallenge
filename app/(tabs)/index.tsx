@@ -1,4 +1,4 @@
-import { TextBox, ViewBox } from "@/components";
+import { TextBox, ViewBox } from "@/components/ui";
 
 export default function HomeScreen() {
   return (
