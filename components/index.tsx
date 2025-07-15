@@ -10,10 +10,10 @@ import {
   View,
   ViewProps,
 } from "react-native";
+import Animated from "react-native-reanimated";
 
 import { Theme } from "@/theme";
 import { createContainer } from "@/utils/createContainer";
-import Animated from "react-native-reanimated";
 
 export const ViewBox = createContainer(createBox<Theme, ViewProps>(View));
 const AnimatedView = Animated.createAnimatedComponent(View);

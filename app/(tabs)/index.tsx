@@ -15,7 +15,10 @@ import {
 import CenterArrow from "@/components/tabs/CenterArrow";
 import { FormContainer } from "@/components/tabs/FormContainer";
 import { Theme } from "@/theme";
+import { useState } from "react";
 import {
+  interpolateColor,
+  useAnimatedProps,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
@@ -25,32 +28,52 @@ export default function HomeScreen() {
   const { width, height } = useWindowDimensions();
   const { top } = useSafeAreaInsets();
   const { colors } = useTheme<Theme>();
-  const isVisible = useSharedValue(false);
+  const [visible, setVisible] = useState(false);
+  const isRotated = useSharedValue(false);
 
   const toggleVisibility = () => {
-    isVisible.value = !isVisible.value;
+    setVisible((v) => !v);
+    isRotated.value = !isRotated.value;
   };
 
   const style = useAnimatedStyle(() => ({
-    opacity: withTiming(isVisible.value ? 1 : 0),
+    opacity: withTiming(isRotated.value ? 1 : 0),
     position: "absolute",
     top: "100%",
   }));
+
   const boxStyle = useAnimatedStyle(() => ({
-    borderColor: isVisible.value ? colors.error : colors.background,
-    borderWidth: isVisible.value ? 1 : 0,
+    backgroundColor: isRotated.value
+      ? colors.primaryFixedDim
+      : colors.background,
+    borderBottomColor: isRotated.value ? colors.primary : colors.background,
+    borderBottomWidth: isRotated.value ? 1 : 0,
   }));
-  const arrowStyle = useAnimatedStyle(() => {
+
+  const arrowStyle = useAnimatedStyle(() => ({
+    transform: [
+      {
+        rotateZ: withTiming(isRotated.value ? "180deg" : "0deg", {
+          duration: 250,
+        }),
+      },
+    ],
+  }));
+  const animatedProps = useAnimatedProps(() => ({
+    color: withTiming(isRotated.value ? colors.primary : colors.outline),
+  }));
+  const animatedStyle = useAnimatedStyle(() => {
+    const color = interpolateColor(
+      isRotated.value ? 1 : 0,
+      [0, 1],
+      [colors.outline, colors.primaryContainer]
+    );
+
     return {
-      transform: [
-        {
-          rotateZ: withTiming(isVisible.value ? "180deg" : "0deg", {
-            duration: 250,
-          }),
-        },
-      ],
+      color: color, // applies to `tintColor`-like properties
     };
   });
+
   return (
     <ViewBox
       style={{ paddingTop: top }}
@@ -89,13 +112,50 @@ export default function HomeScreen() {
                 <MaterialIcons
                   name="arrow-drop-down"
                   size={24}
-                  color={colors.outline}
+                  color={visible ? colors.primary : colors.outline}
                 />
               </AnimatedViewBox>
             </AnimatedPressableBox>
 
-            <AnimatedViewBox style={style} backgroundColor="error">
-              <TextBox>Animated Content</TextBox>
+            <AnimatedViewBox
+              style={style}
+              backgroundColor="background"
+              width="99%"
+              alignSelf="center"
+              borderBottomLeftRadius={4}
+              borderBottomRightRadius={4}
+              variant="boxShadow"
+            >
+              <ViewBox
+                pl="s"
+                py="xs"
+                variant="rowAlignCenter"
+                flex={1}
+                backgroundColor="primaryFixedDim"
+              >
+                <ViewBox flex={0.2}>
+                  <MaterialIcons name="check" size={24} color="green" />
+                </ViewBox>
+                <ViewBox pl="s" flex={0.8}>
+                  <TextBox>Round trip</TextBox>
+                </ViewBox>
+              </ViewBox>
+              <ViewBox pl="s" py="xs" variant="rowAlignCenter" flex={1}>
+                <ViewBox flex={0.2}>
+                  <MaterialIcons name="check" size={24} color="green" />
+                </ViewBox>
+                <ViewBox pl="s" flex={0.8}>
+                  <TextBox>One way</TextBox>
+                </ViewBox>
+              </ViewBox>
+              <ViewBox pl="s" py="xs" variant="rowAlignCenter" flex={1}>
+                <ViewBox flex={0.2}>
+                  <MaterialIcons name="check" size={24} color="green" />
+                </ViewBox>
+                <ViewBox pl="s" flex={0.8}>
+                  <TextBox>Multi-city</TextBox>
+                </ViewBox>
+              </ViewBox>
             </AnimatedViewBox>
           </ViewBox>
           <TouchableOpacityBox variant="rowAlignCenter">
