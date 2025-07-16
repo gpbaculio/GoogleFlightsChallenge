@@ -1,6 +1,12 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import { useTheme } from "@shopify/restyle";
+import { useState } from "react";
 import { useWindowDimensions } from "react-native";
+import {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import Flights from "@/assets/images/flights_nc_4.svg";
@@ -15,12 +21,6 @@ import {
 import CenterArrow from "@/components/tabs/CenterArrow";
 import { FormContainer } from "@/components/tabs/FormContainer";
 import { Theme } from "@/theme";
-import { useState } from "react";
-import {
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
 
 export default function HomeScreen() {
   const { width, height } = useWindowDimensions();
