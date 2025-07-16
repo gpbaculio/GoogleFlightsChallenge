@@ -230,7 +230,7 @@ export default function HomeScreen() {
             placeholder="Departure"
             p="m"
           />
-          <ViewBox width={1} height={28} backgroundColor="outlineVariant" />
+          <ViewBox width={1} height={24} backgroundColor="outlineVariant" />
           <TextInputBox
             placeholder="Return"
             p="m"
