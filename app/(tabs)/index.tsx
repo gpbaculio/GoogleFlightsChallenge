@@ -17,8 +17,6 @@ import { FormContainer } from "@/components/tabs/FormContainer";
 import { Theme } from "@/theme";
 import { useState } from "react";
 import {
-  interpolateColor,
-  useAnimatedProps,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
@@ -59,20 +57,6 @@ export default function HomeScreen() {
       },
     ],
   }));
-  const animatedProps = useAnimatedProps(() => ({
-    color: withTiming(isRotated.value ? colors.primary : colors.outline),
-  }));
-  const animatedStyle = useAnimatedStyle(() => {
-    const color = interpolateColor(
-      isRotated.value ? 1 : 0,
-      [0, 1],
-      [colors.outline, colors.primaryContainer]
-    );
-
-    return {
-      color: color, // applies to `tintColor`-like properties
-    };
-  });
 
   return (
     <ViewBox
@@ -81,6 +65,23 @@ export default function HomeScreen() {
       backgroundColor="background"
       alignItems="center"
     >
+      <ViewBox
+        variant="rowAlignCenter"
+        py="xs"
+        px="m"
+        justifyContent="space-between"
+        width="100%"
+      >
+        <ViewBox variant="rowAlignCenter">
+          <MaterialIcons name="menu" size={24} color={colors.outline} />
+          <TextBox ml="s">Google</TextBox>
+        </ViewBox>
+        <ViewBox variant="rowAlignCenter">
+          <MaterialIcons name="light-mode" size={24} color={colors.outline} />
+          <MaterialIcons name="dark-mode" size={24} color={colors.outline} />
+          <TextBox ml="s">Google</TextBox>
+        </ViewBox>
+      </ViewBox>
       <Flights style={{ zIndex: 3 }} width={width} height={height * 0.11} />
       <FormContainer>
         <TextBox
