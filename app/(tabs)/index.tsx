@@ -91,7 +91,7 @@ export default function HomeScreen() {
         >
           Flights
         </TextBox>
-        <ViewBox variant="rowCenterBetween" m="xs" zIndex={2}>
+        <ViewBox variant="rowAlignCenter" m="xs" zIndex={2}>
           <ViewBox>
             <AnimatedPressableBox
               variant="rowAlignCenter"
@@ -158,13 +158,13 @@ export default function HomeScreen() {
               </ViewBox>
             </AnimatedViewBox>
           </ViewBox>
-          <TouchableOpacityBox variant="rowAlignCenter">
+          <TouchableOpacityBox variant="rowAlignCenter" mx="s">
             <MaterialIcons
               name="person-outline"
               size={24}
               color={colors.outline}
             />
-            <TextBox pl="xs">Round trip</TextBox>
+            <TextBox pl="xs">1</TextBox>
             <MaterialIcons
               name="arrow-drop-down"
               size={24}
@@ -172,7 +172,7 @@ export default function HomeScreen() {
             />
           </TouchableOpacityBox>
           <TouchableOpacityBox variant="rowAlignCenter">
-            <TextBox pl="xs">Round trip</TextBox>
+            <TextBox pl="xs">Economy</TextBox>
             <MaterialIcons
               name="arrow-drop-down"
               size={24}
@@ -186,7 +186,7 @@ export default function HomeScreen() {
             borderWidth={0.5}
             borderColor="outlineVariant"
             mr="s"
-            height={50}
+            height={42}
             borderRadius={4}
             placeholder="Where from?"
             p="m"
@@ -200,7 +200,32 @@ export default function HomeScreen() {
             borderWidth={0.5}
             borderColor="outlineVariant"
             ml="s"
-            height={50}
+            height={42}
+          />
+        </ViewBox>
+        <ViewBox
+          variant="rowAlignCenter"
+          my="s"
+          zIndex={1}
+          borderWidth={0.5}
+          borderColor="outlineVariant"
+        >
+          <TextInputBox
+            flex={1}
+            mr="s"
+            height={42}
+            borderRadius={4}
+            placeholder="Departure"
+            p="m"
+          />
+          <ViewBox width={1} height={28} backgroundColor="outlineVariant" />
+          <TextInputBox
+            placeholder="Return"
+            p="m"
+            flex={1}
+            borderRadius={4}
+            ml="s"
+            height={42}
           />
         </ViewBox>
       </FormContainer>
