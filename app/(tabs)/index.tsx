@@ -195,7 +195,11 @@ export default function HomeScreen() {
             borderRadius={4}
           >
             <ViewBox m="s">
-              <MaterialCommunityIcons size={18} name="circle-outline" />
+              <MaterialCommunityIcons
+                size={18}
+                name="circle-outline"
+                color={colors.outline}
+              />
             </ViewBox>
             <TextInputBox placeholder="Where from?" flex={1} />
           </ViewBox>
@@ -210,7 +214,7 @@ export default function HomeScreen() {
             borderRadius={4}
           >
             <ViewBox pl="xs" m="s">
-              <EvilIcons size={23} name="location" />
+              <EvilIcons size={23} name="location" color={colors.outline} />
             </ViewBox>
             <TextInputBox placeholder="Where to?" flex={1} />
           </ViewBox>
@@ -221,24 +225,23 @@ export default function HomeScreen() {
           zIndex={1}
           borderWidth={0.5}
           borderColor="outlineVariant"
+          borderRadius={4}
+          height={42}
         >
-          <TextInputBox
-            flex={1}
-            mr="s"
-            height={42}
-            borderRadius={4}
-            placeholder="Departure"
-            p="m"
-          />
+          <ViewBox variant="rowAlignCenter" flex={0.5}>
+            <ViewBox m="s">
+              <MaterialCommunityIcons
+                size={18}
+                name="calendar"
+                color={colors.outline}
+              />
+            </ViewBox>
+            <TextInputBox flex={1} placeholder="Departure" />
+          </ViewBox>
           <ViewBox width={1} height={24} backgroundColor="outlineVariant" />
-          <TextInputBox
-            placeholder="Return"
-            p="m"
-            flex={1}
-            borderRadius={4}
-            ml="s"
-            height={42}
-          />
+          <ViewBox variant="rowAlignCenter" flex={0.5} pl="m">
+            <TextInputBox flex={1} placeholder="Return" />
+          </ViewBox>
         </ViewBox>
       </FormContainer>
     </ViewBox>
