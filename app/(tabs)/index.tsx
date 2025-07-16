@@ -67,8 +67,7 @@ export default function HomeScreen() {
     >
       <ViewBox
         variant="rowAlignCenter"
-        py="xs"
-        px="m"
+        p="m"
         justifyContent="space-between"
         width="100%"
       >
