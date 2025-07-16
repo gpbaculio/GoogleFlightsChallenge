@@ -1,5 +1,5 @@
 import {
-  Ionicons,
+  EvilIcons,
   MaterialCommunityIcons,
   MaterialIcons,
 } from "@expo/vector-icons";
@@ -184,51 +184,35 @@ export default function HomeScreen() {
             />
           </TouchableOpacityBox>
         </ViewBox>
-        <ViewBox flex={1} variant="rowAlignCenter" my="s" zIndex={1}>
+        <ViewBox variant="rowAlignCenter" my="s" zIndex={1}>
           <ViewBox
-            flex={0.5}
-            variant="rowAlignCenter"
+            flex={1}
             borderWidth={0.5}
             borderColor="outlineVariant"
             mr="s"
+            height={42}
+            variant="rowAlignCenter"
             borderRadius={4}
           >
-            <ViewBox mx="xs">
-              <MaterialCommunityIcons
-                name="circle-outline"
-                size={18}
-                color={colors.outline}
-              />
+            <ViewBox m="s">
+              <MaterialCommunityIcons size={18} name="circle-outline" />
             </ViewBox>
-            <TextInputBox
-              height={42}
-              borderRadius={4}
-              placeholder="Where from?"
-              flex={1}
-            />
+            <TextInputBox placeholder="Where from?" flex={1} />
           </ViewBox>
           <CenterArrow />
           <ViewBox
-            flex={0.5}
-            variant="rowAlignCenter"
-            borderRadius={4}
+            flex={1}
             borderWidth={0.5}
             borderColor="outlineVariant"
             ml="s"
+            height={42}
+            variant="rowAlignCenter"
+            borderRadius={4}
           >
-            <ViewBox ml="s" pl="xs" mr="xs">
-              <Ionicons
-                name="location-outline"
-                size={21}
-                color={colors.outline}
-              />
+            <ViewBox pl="xs" m="s">
+              <EvilIcons size={23} name="location" />
             </ViewBox>
-            <TextInputBox
-              placeholder="Where to?"
-              height={42}
-              borderRadius={4}
-              flex={1}
-            />
+            <TextInputBox placeholder="Where to?" flex={1} />
           </ViewBox>
         </ViewBox>
         <ViewBox
