@@ -1,4 +1,8 @@
-import { MaterialIcons } from "@expo/vector-icons";
+import {
+  Ionicons,
+  MaterialCommunityIcons,
+  MaterialIcons,
+} from "@expo/vector-icons";
 import { useTheme } from "@shopify/restyle";
 import { useState } from "react";
 import { useWindowDimensions } from "react-native";
@@ -180,28 +184,52 @@ export default function HomeScreen() {
             />
           </TouchableOpacityBox>
         </ViewBox>
-        <ViewBox variant="rowAlignCenter" my="s" zIndex={1}>
-          <TextInputBox
-            flex={1}
+        <ViewBox flex={1} variant="rowAlignCenter" my="s" zIndex={1}>
+          <ViewBox
+            flex={0.5}
+            variant="rowAlignCenter"
             borderWidth={0.5}
             borderColor="outlineVariant"
             mr="s"
-            height={42}
             borderRadius={4}
-            placeholder="Where from?"
-            p="m"
-          />
+          >
+            <ViewBox mx="xs">
+              <MaterialCommunityIcons
+                name="circle-outline"
+                size={18}
+                color={colors.outline}
+              />
+            </ViewBox>
+            <TextInputBox
+              height={42}
+              borderRadius={4}
+              placeholder="Where from?"
+              flex={1}
+            />
+          </ViewBox>
           <CenterArrow />
-          <TextInputBox
-            placeholder="Where to?"
-            p="m"
-            flex={1}
+          <ViewBox
+            flex={0.5}
+            variant="rowAlignCenter"
             borderRadius={4}
             borderWidth={0.5}
             borderColor="outlineVariant"
             ml="s"
-            height={42}
-          />
+          >
+            <ViewBox ml="s" pl="xs" mr="xs">
+              <Ionicons
+                name="location-outline"
+                size={21}
+                color={colors.outline}
+              />
+            </ViewBox>
+            <TextInputBox
+              placeholder="Where to?"
+              height={42}
+              borderRadius={4}
+              flex={1}
+            />
+          </ViewBox>
         </ViewBox>
         <ViewBox
           variant="rowAlignCenter"
