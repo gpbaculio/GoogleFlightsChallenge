@@ -6,22 +6,16 @@ import {
 import { useTheme } from "@shopify/restyle";
 import { useState } from "react";
 import { useWindowDimensions } from "react-native";
-import {
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import Flights from "@/assets/images/flights_nc_4.svg";
 import {
-  AnimatedPressableBox,
-  AnimatedViewBox,
   TextBox,
   TextInputBox,
   TouchableOpacityBox,
   ViewBox,
 } from "@/components";
+import DropdownSelector from "@/components/DropdownSelector";
 import CenterArrow from "@/components/tabs/CenterArrow";
 import { FormContainer } from "@/components/tabs/FormContainer";
 import { Theme } from "@/theme";
@@ -30,38 +24,7 @@ export default function HomeScreen() {
   const { width, height } = useWindowDimensions();
   const { top } = useSafeAreaInsets();
   const { colors } = useTheme<Theme>();
-  const [visible, setVisible] = useState(false);
-  const isRotated = useSharedValue(false);
-
-  const toggleVisibility = () => {
-    setVisible((v) => !v);
-    isRotated.value = !isRotated.value;
-  };
-
-  const style = useAnimatedStyle(() => ({
-    opacity: withTiming(isRotated.value ? 1 : 0),
-    position: "absolute",
-    top: "100%",
-  }));
-
-  const boxStyle = useAnimatedStyle(() => ({
-    backgroundColor: isRotated.value
-      ? colors.primaryFixedDim
-      : colors.background,
-    borderBottomColor: isRotated.value ? colors.primary : colors.background,
-    borderBottomWidth: isRotated.value ? 1 : 0,
-  }));
-
-  const arrowStyle = useAnimatedStyle(() => ({
-    transform: [
-      {
-        rotateZ: withTiming(isRotated.value ? "180deg" : "0deg", {
-          duration: 250,
-        }),
-      },
-    ],
-  }));
-
+  const [tripType, setTripType] = useState("round");
   return (
     <ViewBox
       style={{ paddingTop: top }}
@@ -96,72 +59,17 @@ export default function HomeScreen() {
           Flights
         </TextBox>
         <ViewBox variant="rowAlignCenter" m="xs" zIndex={2}>
-          <ViewBox>
-            <AnimatedPressableBox
-              variant="rowAlignCenter"
-              onPress={toggleVisibility}
-              style={boxStyle}
-              px="s"
-              py="xs"
-              borderTopLeftRadius={4}
-              borderTopRightRadius={4}
-            >
-              <MaterialIcons
-                name="compare-arrows"
-                size={24}
-                color={colors.outline}
-              />
-              <TextBox pl="xs">Round trip</TextBox>
-              <AnimatedViewBox style={arrowStyle}>
-                <MaterialIcons
-                  name="arrow-drop-down"
-                  size={24}
-                  color={visible ? colors.primary : colors.outline}
-                />
-              </AnimatedViewBox>
-            </AnimatedPressableBox>
-
-            <AnimatedViewBox
-              style={style}
-              backgroundColor="background"
-              width="99%"
-              alignSelf="center"
-              borderBottomLeftRadius={4}
-              borderBottomRightRadius={4}
-              variant="boxShadow"
-            >
-              <ViewBox
-                pl="s"
-                py="xs"
-                variant="rowAlignCenter"
-                flex={1}
-                backgroundColor="primaryFixedDim"
-              >
-                <ViewBox flex={0.2}>
-                  <MaterialIcons name="check" size={24} color="green" />
-                </ViewBox>
-                <ViewBox pl="s" flex={0.8}>
-                  <TextBox>Round trip</TextBox>
-                </ViewBox>
-              </ViewBox>
-              <ViewBox pl="s" py="xs" variant="rowAlignCenter" flex={1}>
-                <ViewBox flex={0.2}>
-                  <MaterialIcons name="check" size={24} color="green" />
-                </ViewBox>
-                <ViewBox pl="s" flex={0.8}>
-                  <TextBox>One way</TextBox>
-                </ViewBox>
-              </ViewBox>
-              <ViewBox pl="s" py="xs" variant="rowAlignCenter" flex={1}>
-                <ViewBox flex={0.2}>
-                  <MaterialIcons name="check" size={24} color="green" />
-                </ViewBox>
-                <ViewBox pl="s" flex={0.8}>
-                  <TextBox>Multi-city</TextBox>
-                </ViewBox>
-              </ViewBox>
-            </AnimatedViewBox>
-          </ViewBox>
+          <DropdownSelector
+            label="Round trip"
+            iconName="compare-arrows"
+            selectedValue={tripType}
+            onSelect={setTripType}
+            options={[
+              { label: "Round trip", value: "round" },
+              { label: "One way", value: "oneway" },
+              { label: "Multi-city", value: "multi" },
+            ]}
+          />
           <TouchableOpacityBox variant="rowAlignCenter" mx="s">
             <MaterialIcons
               name="person-outline"
