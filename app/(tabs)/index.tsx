@@ -151,6 +151,25 @@ export default function HomeScreen() {
             <TextInputBox flex={1} placeholder="Return" />
           </ViewBox>
         </ViewBox>
+        <TouchableOpacityBox
+          p="s"
+          position="absolute"
+          backgroundColor="primary"
+          variant="rowAlignCenter"
+          borderRadius={100}
+          bottom={-20}
+          alignSelf="center"
+          shadowColor="onBackground"
+          shadowRadius={2}
+          elevation={2}
+          shadowOpacity={0.2}
+          shadowOffset={{ width: 0, height: 1 }}
+        >
+          <MaterialIcons name="search" size={21} color={colors.onPrimary} />
+          <TextBox color="onPrimary" fontSize={16} ml="xs">
+            Explore
+          </TextBox>
+        </TouchableOpacityBox>
       </FormContainer>
     </ViewBox>
   );
