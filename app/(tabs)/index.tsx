@@ -146,7 +146,12 @@ export default function HomeScreen() {
             </ViewBox>
             <TextInputBox flex={1} placeholder="Departure" />
           </ViewBox>
-          <ViewBox width={1} height={24} backgroundColor="outlineVariant" />
+          <ViewBox
+            ml="m"
+            width={1}
+            height={24}
+            backgroundColor="outlineVariant"
+          />
           <ViewBox variant="rowAlignCenter" flex={0.5} pl="m">
             <TextInputBox flex={1} placeholder="Return" />
           </ViewBox>
