@@ -2,17 +2,18 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { useTheme } from "@shopify/restyle";
 import React, { useState } from "react";
 import {
-    useAnimatedStyle,
-    useSharedValue,
-    withTiming,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
 } from "react-native-reanimated";
-import { Theme } from "../theme"; // adjust path
+
+import { Theme } from "../theme";
 import {
-    AnimatedPressableBox,
-    AnimatedViewBox,
-    TextBox,
-    ViewBox,
-} from "./index"; // adjust path
+  AnimatedPressableBox,
+  AnimatedViewBox,
+  TextBox,
+  ViewBox,
+} from "./index";
 
 interface DropdownOption {
   label: string;
