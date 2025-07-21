@@ -28,13 +28,13 @@ interface DropdownSelectorProps {
   selectedValue?: string;
 }
 
-const DropdownSelector: React.FC<DropdownSelectorProps> = ({
+function DropdownSelector({
   label,
   iconName,
   options,
   onSelect,
   selectedValue,
-}) => {
+}: DropdownSelectorProps) {
   const [visible, setVisible] = useState(false);
   const isRotated = useSharedValue(false);
   const { colors } = useTheme<Theme>();
@@ -124,6 +124,6 @@ const DropdownSelector: React.FC<DropdownSelectorProps> = ({
       </AnimatedViewBox>
     </ViewBox>
   );
-};
+}
 
 export default DropdownSelector;
