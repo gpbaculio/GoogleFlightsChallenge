@@ -50,6 +50,10 @@ export default {
       surfaceContainer: "#ECEDF8",
       surfaceContainerHigh: "#E7E7F2",
       surfaceContainerHighest: "#E1E2EC",
+      googleBlue: "#4285F4",
+      googleRed: "#EA4335",
+      googleYellow: "#FBBC05",
+      googleGreen: "#34A853",
     },
     dark: {
       primary: "#B1C6FF",
@@ -101,6 +105,10 @@ export default {
       surfaceContainer: "#1D1F27",
       surfaceContainerHigh: "#272A32",
       surfaceContainerHighest: "#32343D",
+      googleBlue: "#4285F4",
+      googleRed: "#EA4335",
+      googleYellow: "#FBBC05",
+      googleGreen: "#34A853",
     },
   },
   palettes: {
