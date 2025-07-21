@@ -61,11 +61,13 @@ function DropdownSelector({
       },
     ],
   }));
+
   const dropdownStyle = useAnimatedStyle(() => ({
     opacity: withTiming(isRotated.value ? 1 : 0),
     position: "absolute",
     top: "100%",
   }));
+
   return (
     <ViewBox>
       <AnimatedPressableBox
