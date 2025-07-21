@@ -40,12 +40,60 @@ export default function HomeScreen() {
       >
         <ViewBox variant="rowAlignCenter">
           <MaterialIcons name="menu" size={24} color={colors.outline} />
-          <TextBox ml="s">Google</TextBox>
+          <TextBox
+            ml="s"
+            letterSpacing={0.5}
+            variant="notoSansMedium"
+            fontSize={17}
+            color="googleBlue"
+          >
+            G
+          </TextBox>
+          <TextBox
+            color="googleRed"
+            letterSpacing={0.5}
+            variant="notoSansMedium"
+            fontSize={17}
+          >
+            o
+          </TextBox>
+          <TextBox
+            color="googleYellow"
+            letterSpacing={0.5}
+            variant="notoSansMedium"
+            fontSize={17}
+          >
+            o
+          </TextBox>
+          <TextBox
+            color="googleBlue"
+            letterSpacing={0.5}
+            variant="notoSansMedium"
+            fontSize={17}
+          >
+            g
+          </TextBox>
+          <TextBox
+            color="googleGreen"
+            letterSpacing={0.5}
+            variant="notoSansMedium"
+            fontSize={17}
+          >
+            l
+          </TextBox>
+          <TextBox
+            color="googleRed"
+            letterSpacing={0.5}
+            variant="notoSansMedium"
+            fontSize={17}
+          >
+            e
+          </TextBox>
         </ViewBox>
         <ViewBox variant="rowAlignCenter">
           <MaterialIcons name="light-mode" size={24} color={colors.outline} />
           <MaterialIcons name="dark-mode" size={24} color={colors.outline} />
-          <TextBox ml="s">Google</TextBox>
+          <TextBox ml="s">G</TextBox>
         </ViewBox>
       </ViewBox>
       <Flights style={{ zIndex: 3 }} width={width} height={height * 0.11} />
