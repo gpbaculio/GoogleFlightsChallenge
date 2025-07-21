@@ -49,7 +49,6 @@ function DropdownSelector({
       ? colors.primaryFixedDim
       : colors.background,
     borderBottomColor: isRotated.value ? colors.primary : colors.background,
-    borderBottomWidth: isRotated.value ? 1 : 0,
   }));
 
   const arrowStyle = useAnimatedStyle(() => ({
@@ -76,6 +75,7 @@ function DropdownSelector({
         style={boxStyle}
         px="s"
         py="xs"
+        borderBottomWidth={1}
         borderTopLeftRadius={4}
         borderTopRightRadius={4}
       >
