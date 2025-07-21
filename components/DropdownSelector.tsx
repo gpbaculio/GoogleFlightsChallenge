@@ -85,7 +85,7 @@ function DropdownSelector({
           <MaterialIcons
             name="arrow-drop-down"
             size={24}
-            color={visible ? colors.primary : colors.outline}
+            color={visible ? colors.outline : colors.primary}
           />
         </AnimatedViewBox>
       </AnimatedPressableBox>
