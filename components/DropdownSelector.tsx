@@ -1,5 +1,5 @@
 import { MaterialIcons } from "@expo/vector-icons";
-import { useTheme } from "@shopify/restyle";
+import { LayoutProps, useTheme } from "@shopify/restyle";
 import React, { useState } from "react";
 import {
   useAnimatedStyle,
@@ -26,6 +26,7 @@ interface DropdownSelectorProps {
   options: DropdownOption[];
   onSelect: (value: string) => void;
   selectedValue?: string;
+  width?: LayoutProps<Theme>["width"];
 }
 
 function DropdownSelector({
@@ -34,6 +35,7 @@ function DropdownSelector({
   options,
   onSelect,
   selectedValue,
+  width,
 }: DropdownSelectorProps) {
   const [visible, setVisible] = useState(false);
   const isRotated = useSharedValue(false);
@@ -68,7 +70,7 @@ function DropdownSelector({
   }));
 
   return (
-    <ViewBox>
+    <ViewBox width={width}>
       <AnimatedPressableBox
         variant="rowAlignCenter"
         onPress={toggleVisibility}
@@ -97,6 +99,7 @@ function DropdownSelector({
         borderBottomLeftRadius={4}
         borderBottomRightRadius={4}
         variant="boxShadow"
+        pb="xs"
       >
         {options.map((opt) => (
           <ViewBox
@@ -110,8 +113,9 @@ function DropdownSelector({
             }
             onTouchEnd={() => {
               onSelect(opt.value);
-              setVisible(false);
+              toggleVisibility();
             }}
+            height={34}
           >
             <ViewBox flex={0.2}>
               {selectedValue === opt.value && (
