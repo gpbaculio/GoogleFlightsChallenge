@@ -20,11 +20,21 @@ import CenterArrow from "@/components/tabs/CenterArrow";
 import { FormContainer } from "@/components/tabs/FormContainer";
 import { Theme } from "@/theme";
 
+const tripOptions = [
+  { label: "Round trip", value: "round" },
+  { label: "One way", value: "oneway" },
+  { label: "Multi-city", value: "multi" },
+];
+
 export default function HomeScreen() {
   const { width, height } = useWindowDimensions();
   const { top } = useSafeAreaInsets();
   const { colors } = useTheme<Theme>();
   const [tripType, setTripType] = useState("round");
+  const selectedLabel =
+    tripOptions.find((opt) => opt.value === tripType)?.label ??
+    tripOptions[0].label;
+
   return (
     <ViewBox
       style={{ paddingTop: top }}
@@ -108,15 +118,12 @@ export default function HomeScreen() {
         </TextBox>
         <ViewBox variant="rowAlignCenter" m="xs" zIndex={2}>
           <DropdownSelector
-            label="Round trip"
+            width={"33%"}
+            label={selectedLabel}
             iconName="compare-arrows"
             selectedValue={tripType}
             onSelect={setTripType}
-            options={[
-              { label: "Round trip", value: "round" },
-              { label: "One way", value: "oneway" },
-              { label: "Multi-city", value: "multi" },
-            ]}
+            options={tripOptions}
           />
           <TouchableOpacityBox variant="rowAlignCenter" mx="s">
             <MaterialIcons
