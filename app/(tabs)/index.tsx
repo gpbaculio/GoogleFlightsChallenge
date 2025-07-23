@@ -215,7 +215,9 @@ export default function HomeScreen() {
           p="s"
           position="absolute"
           backgroundColor="primary"
-          variant="rowAlignCenter"
+          flexDirection="row"
+          alignItems="center"
+          variant="boxShadow"
           borderRadius={100}
           bottom={-20}
           alignSelf="center"
