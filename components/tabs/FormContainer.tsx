@@ -12,11 +12,7 @@ export function FormContainer({ children }: { children: React.ReactNode }) {
       width="100%"
       pb="m"
       backgroundColor="background"
-      shadowColor="onBackground"
-      shadowRadius={2}
-      elevation={2}
-      shadowOpacity={0.2}
-      shadowOffset={{ width: 0, height: 1 }}
+      variant="boxShadow"
       px="m"
     >
       {children}
